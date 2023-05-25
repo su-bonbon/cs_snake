@@ -54,5 +54,9 @@ namespace SnakeGameSJ
             }
         }
         
+        private void AddFood()
+        {
+
+        }
     }
 }
