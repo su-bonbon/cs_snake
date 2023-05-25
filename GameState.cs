@@ -26,6 +26,7 @@ namespace SnakeGameSJ
             Dir = Direction.Right;
 
             AddSnake();
+            AddFood();
         }
 
         private void AddSnake()
@@ -53,10 +54,45 @@ namespace SnakeGameSJ
                 }
             }
         }
-        
+
         private void AddFood()
         {
+            List<Position> empty = new List<Position>(EmptyPosition());
 
+            if (empty.Count == 0)
+            {
+                return;
+            }
+            Position pos = empty[random.Next(empty.Count)];
+            Grid[pos.Row, pos.Col] = GridValue.Food;
+        }
+
+        public Position HeadPosition()
+        {
+            return snakePositions.First.Value;
+        }
+
+        public Position TailPosition()
+        {
+            return snakePositions.Last.Value;
+        }
+
+        public IEnumerable<Position> SnakePositio()
+        {
+            return snakePositions;
+        }
+
+        private void AddHead(Position Pos)
+        {
+            snakePositions.AddFirst(Pos);
+            Grid[Pos.Row, Pos.Col] = GridValue.Snake;
+        }
+
+        private void RemoveTail()
+        {
+            Position tail = snakePositions.Last.Value;
+            Grid[tail.Row, tail.Col] = GridValue.Empty;
+            snakePositions.RemoveLast();
         }
     }
 }
