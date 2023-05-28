@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGameSJ
 {
-    public static class images
+    class Images
     {
-
     }
 }
