@@ -13,8 +13,31 @@
         Icon="Assets/Icon.ico">
     <Grid>
         <Grid.RowDefinitions>
-            
-            
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <TextBlock x:Name="ScoreText"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="SCORE 0"
+                   FontSize="22"
+                   Margin="10" />
+
+        <Border x:Name="GridBorder"
+                Grid.Row="1"
+                BorderBrush="{StaticResource GridLineColor}"
+                BorderThickness="1.5"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <UniformGrid x:Name="GameGrid"
+                Width="400"
+                Height="400"
+                Background="{StaticResource GridBackgroundColor}">
+
+            </UniformGrid>
+            
+            
+        </Border>
     </Grid>
 </Window>
