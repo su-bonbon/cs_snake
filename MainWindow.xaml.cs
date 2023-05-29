@@ -58,5 +58,17 @@ namespace SnakeGameSJ
             }
             return images;
         }
+
+        private void DrawGrid()
+        {
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; ++c)
+                {
+                    GridCalue gridVal = gameState.Grid[r, c];
+                }
+
+            }
+        }
     }
 }
