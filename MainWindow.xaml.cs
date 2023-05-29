@@ -20,6 +20,14 @@ namespace SnakeGameSJ
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Dictionary<GridValue, ImageSource> gridValtoImage = new()
+        {
+            { GridValue.Empty, Images.Empty },
+            { GridValue.Snake, Images.Body },
+            { GridValue.Food, Images.Food }
+
+        };
+
         private readonly int rows = 15, cols = 15;
         private readonly Image[,] gridImages;
 
