@@ -38,9 +38,10 @@ namespace SnakeGameSJ
             gameState = new GameState(rows, cols);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Draw();
+            await GameLoop();
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -63,6 +64,13 @@ namespace SnakeGameSJ
                     gameState.ChangeDirection(Direction.Down); 
                     break;
             }
+        }
+
+        private async Task GameLoop()
+        {
+            await Task.Delay(100);
+            gameState.Move();
+            Draw();
         }
         private Image[,] SetupGrid()
         {
