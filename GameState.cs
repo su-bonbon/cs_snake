@@ -77,7 +77,7 @@ namespace SnakeGameSJ
             return snakePositions.Last.Value;
         }
 
-        public IEnumerable<Position> SnakePositio()
+        public IEnumerable<Position> SnakePositions()
         {
             return snakePositions;
         }
