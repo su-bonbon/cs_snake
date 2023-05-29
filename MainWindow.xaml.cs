@@ -25,16 +25,17 @@ namespace SnakeGameSJ
             { GridValue.Empty, Images.Empty },
             { GridValue.Snake, Images.Body },
             { GridValue.Food, Images.Food }
-
         };
 
         private readonly int rows = 15, cols = 15;
         private readonly Image[,] gridImages;
+        private GameState gameState;
 
         public MainWindow()
         {
             InitializeComponent();
             gridImages = SetupGrid();
+            gameState = new GameState(rows, cols);
         }
         private Image[,] SetupGrid()
         {
