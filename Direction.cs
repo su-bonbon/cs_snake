@@ -44,5 +44,6 @@ namespace SnakeGameSJ
         {
             return !(left == right);
         }
+
     }
 }
