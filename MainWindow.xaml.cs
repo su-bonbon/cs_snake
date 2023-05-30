@@ -27,6 +27,8 @@ namespace SnakeGameSJ
             { GridValue.Food, Images.Food }
         };
 
+
+
         private readonly int rows = 15, cols = 15;
         private readonly Image[,] gridImages;
         private GameState gameState;
@@ -45,6 +47,8 @@ namespace SnakeGameSJ
             await ShowCountDown();
             Overlay.Visibility = Visibility.Hidden;
             await GameLoop();
+            await ShowGameOver();
+            gameState = new GameState(rows, cols);
         }
 
         private async void Window_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -137,6 +141,12 @@ namespace SnakeGameSJ
                 OverlayText.Text = i.ToString();
                 await Task.Delay(500);
             }
+        }
+
+        private async Task ShowGameOver()
+        {
+            Overlay.Visibility = Visibility.Visible;
+            OverlayText.Text = "PRESS ANY KEY TO START";
         }
     }
 }
