@@ -12,7 +12,7 @@
         FontFamily="{StaticResource MainFont}"
         WindowStartupLocation="CenterScreen"
         Icon="Assets/Icon.ico"
-        Loaded="Window_Loaded"
+        PreviewKeyDown="Window_PreviewKeyDown"
         KeyDown="Window_KeyDown">
     <Viewbox>
         <Grid>
