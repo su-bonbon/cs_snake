@@ -96,9 +96,34 @@ namespace SnakeGameSJ
             snakePositions.RemoveLast();
         }
 
+        private Direction GetLastDirection()
+        {
+            if (dirChanges.Count > 0)
+            {
+                return Dir;
+            }
+
+            return dirChanges.Last.Value;
+        }
+
+        private bool CanChangeDirection(Direction newDir)
+        {
+            if (dirChanges.Count == 2)
+            {
+                return false;
+            }
+
+            Direction lastDir = GetLastDirection();
+            return newDir != lastDir && newDir != lastDir.Opposite();
+        }
+
         public void ChangeDirection(Direction dir)
         {
-            Dir = dir;
+            if (CanChangeDirection(dir))
+            {
+                dirChanges.AddLast(dir);
+            }
+
         }
 
         private bool OutsideGrid(Position pos)
@@ -122,6 +147,13 @@ namespace SnakeGameSJ
 
         public void Move()
         {
+
+            if (dirChanges.Count > 0)
+            {
+                Dir = dirChanges.First.Value;
+                dirChanges.RemoveFirst();
+            }
+
             Position newHeadPos = HeadPosition().Translate(Dir);
             GridValue hit = WillHit(newHeadPos);
 
