@@ -96,9 +96,12 @@ namespace SnakeGameSJ
 
         private async Task GameLoop()
         {
-            await Task.Delay(100);
-            gameState.Move();
-            Draw();
+            while (!gameState.GameOver)
+            {
+                await Task.Delay(150);
+                gameState.Move();
+                Draw();
+            }
         }
         private Image[,] SetupGrid()
         {
@@ -108,7 +111,7 @@ namespace SnakeGameSJ
 
             for (int r = 0; r < cols; r++)
             {
-                for (int c = 0; c < cols; ++c)
+                for (int c = 0; c < cols; c++)
                 {
                     Image image = new Image
                     {

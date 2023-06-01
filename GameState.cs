@@ -16,9 +16,9 @@ namespace SnakeGameSJ
         public int Score { get; private set; }
         public bool GameOver { get; private set; }
 
-        private readonly LinkedList<Direction> dirChanges = new LinkedList<Direction>();
-        private readonly LinkedList<Position> snakePositions = new LinkedList<Position>();
-        private readonly Random random = new Random();
+        private readonly LinkedList<Direction> dirChanges = new();
+        private readonly LinkedList<Position> snakePositions = new();
+        private readonly Random random = new();
 
         public GameState(int rows, int cols)
         {
