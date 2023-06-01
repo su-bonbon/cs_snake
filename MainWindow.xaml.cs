@@ -157,7 +157,7 @@ namespace SnakeGameSJ
 
         private async Task DrawDeadSnake()
         {
-            List<Position> positions new List<Position>(gameState.SnakePositions());
+            List<Position> positions = new List<Position>(gameState.SnakePositions());
 
             for (int i = 0; i < positions.Count; i++)
             {
