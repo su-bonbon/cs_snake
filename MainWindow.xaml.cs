@@ -115,7 +115,8 @@ namespace SnakeGameSJ
                 {
                     Image image = new Image
                     {
-                        Source = Images.Empty
+                        Source = Images.Empty,
+                        RenderTransformOrigin = new Point(0.5, 0.5)
                     };
 
                     images[r, c] = image;
@@ -135,10 +136,11 @@ namespace SnakeGameSJ
         {
             for (int r = 0; r < rows; r++)
             {
-                for (int c = 0; c < cols; ++c)
+                for (int c = 0; c < cols; c++)
                 {
                     GridValue gridVal = gameState.Grid[r, c];
                     gridImages[r, c].Source = gridValtoImage[gridVal];
+                    gridImages[r, c].RenderTransform = Transform.Identity;
                 }
 
             }
